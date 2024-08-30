@@ -21,16 +21,24 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("/api/dapi/restaurants/list/v5?lat=28.4798396&lng=77.3223915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const apiUrl = import.meta.env.PROD
+        ? 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4798396&lng=77.3223915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
+        : '/api/dapi/restaurants/list/v5?lat=28.4798396&lng=77.3223915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING';
 
+    try {
+        const data = await fetch(apiUrl);
         const response = await data.json();
-        console.log(response);
+        // console.log(response); 
 
         //optional chaining use of ? while accessing
         // console.log(response.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   
         setListOfRestaurants(response.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(response.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   //for re-rendering
         // console.log(setListOfRestaurants); 
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle the error, maybe set an error state
+    }
     }
 
     //Condn of Internet Connectivity Of User
