@@ -1,11 +1,11 @@
 
 import { useParams } from "react-router-dom";
-import Shimmer from "./shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory"
 import { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import ShimmerItems from "./ShimmerItems";
 
 
 const RestaurantMenu = () => {
@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
 
    const[showIndex,setShowIndex] = useState(null); //Lifting the State Up and now got power to nearest ancestor and now on bais of indexing distribute power one at a time
 
-   if (resInfo === null) return <Shimmer />
+   if (resInfo === null) return <ShimmerItems/>
    const { name, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;   //destructurising the object
 
    const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;

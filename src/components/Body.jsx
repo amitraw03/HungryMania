@@ -40,7 +40,7 @@ const Body = () => {
     );
 
     //conditional Rendering
-    return !ListOfRestaurants || ListOfRestaurants.length === 0 ? <Shimmer /> : (
+    return  ListOfRestaurants.length === 0 ? <Shimmer /> : (
         <>
         <Header/>
         <BgVideo/>
