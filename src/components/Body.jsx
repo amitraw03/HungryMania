@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";  //importing default exports
 import { useEffect, useState } from "react";  //importing usestate hook is similr importing named exportsim
-import Shimmer from "./shimmer";   //import fake UI for the 1st rendering
+import Shimmer from "./Shimmer";   //import fake UI for the 1st rendering
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Header from "./Header";
