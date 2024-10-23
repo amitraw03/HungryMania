@@ -1,15 +1,21 @@
-
 const Shimmer = () => {
-    return(
-        <>
-        <div className="bg-slate-300 w-[1420px] h-[380px] mt-16 mb-8 mx-auto rounded-lg"></div>
-        <div className="flex flex-wrap ml-20">
-            <div className="bg-slate-300 w-72 h-[520px] px-6 ml-9 mr-3 mb-8 mt-5 rounded-lg "></div>
-            <div className="bg-slate-300 w-72 h-[520px] px-6 ml-9 mr-3 mb-8 mt-5 rounded-lg "></div>
-            <div className="bg-slate-300 w-72 h-[520px] px-6 ml-9 mr-3 mb-8 mt-5 rounded-lg "></div>
-            <div className="bg-slate-300 w-72 h-[520px] px-6 ml-9 mr-3 mb-8 mt-5 rounded-lg "></div>
+    return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="animate-pulse">
+                {/* Hero section shimmer */}
+                <div className="w-full h-48 md:h-64 lg:h-80 bg-slate-300 rounded-lg mb-8"></div>
+                
+                {/* Cards grid shimmer */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    {[...Array(8)].map((_, index) => (
+                        <div key={index} className="w-full">
+                            <div className="bg-slate-300 h-48 rounded-t-lg"></div>
+                            <div className="bg-slate-300 h-32 mt-2 rounded-b-lg"></div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
-        </>
     );
 };
 

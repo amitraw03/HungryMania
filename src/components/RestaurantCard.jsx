@@ -1,20 +1,27 @@
 import { CDN_URL } from "../utils/constants";
 
 const RestaurantCard = ({ resData }) => {
-    // console.log(resData);  
-    const{name, cuisines, avgRating, costForTwo, areaName ,cloudinaryImageId}=resData?.info;   //destructurising the object
+    const { name, cuisines, avgRating, costForTwo, areaName, cloudinaryImageId } = resData?.info;
+
     return (
-        <div  data-testid="resCard"
-         className=" w-72 h-[520px] text-center hover:bg-slate-100 px-6 ml-9 mr-3 mb-8 mt-5 rounded-md shadow-inner transform transition-transform duration-300 hover:scale-105  " >
-            <img className="card-img size-56 rounded-md ml-2" 
-            src={ CDN_URL+ cloudinaryImageId}/>
-           <div className="text-center">
-            <h3 className="font-bold font-serif mb-3">{name}</h3>
-            <h4 className="font-mono my-2 break-words whitespace-normal">{cuisines.join(",")}</h4>
-            <h4 className="font-semibold">{avgRating} ⭐</h4>
-            <h4 className="font-semibold">{costForTwo}</h4>
-            <h4 className="font-mono">-{areaName}</h4>  
-           </div>
+        <div 
+            data-testid="resCard"
+            className="w-full h-auto bg-white rounded-lg shadow-md hover:bg-slate-100 transition-transform duration-300 hover:scale-105"
+        >
+            <img 
+                className="w-full h-48 object-cover rounded-t-lg"
+                src={CDN_URL + cloudinaryImageId}
+                alt={name}
+            />
+            <div className="p-4">
+                <h3 className="font-bold font-serif mb-2 text-lg">{name}</h3>
+                <p className="font-mono text-sm mb-2 line-clamp-2">{cuisines.join(", ")}</p>
+                <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold">{avgRating} ⭐</span>
+                    <span className="font-semibold text-green-600 bg-yellow-100 p-2 rounded-full">{costForTwo.slice(0,5)}</span>
+                </div>
+                <p className="font-mono text-sm text-gray-600">{areaName}</p>
+            </div>
         </div>
     );
 };
