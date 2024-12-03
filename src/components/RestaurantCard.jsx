@@ -6,13 +6,15 @@ const RestaurantCard = ({ resData }) => {
     return (
         <div 
             data-testid="resCard"
-            className="w-full h-auto bg-white rounded-lg shadow-md hover:bg-slate-100 transition-transform duration-300 hover:scale-105"
+            className="w-full h-auto bg-white rounded-lg shadow-md"
         >
-            <img 
-                className="w-full h-48 object-cover rounded-t-lg"
-                src={CDN_URL + cloudinaryImageId}
-                alt={name}
-            />
+            <div className="overflow-hidden rounded-t-lg">
+                <img 
+                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    src={CDN_URL + cloudinaryImageId}
+                    alt={name}
+                />
+            </div>
             <div className="p-4">
                 <h3 className="font-bold font-serif mb-2 text-lg">{name}</h3>
                 <p className="font-mono text-sm mb-2 line-clamp-2">{cuisines.join(", ")}</p>
