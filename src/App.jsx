@@ -5,6 +5,7 @@ import Contact from "./components/Contact"
 import About from "./components/About"
 import RestaurantMenu from "./components/RestaurantMenu";
 import Cart from "./components/Cart";
+import Spinner from "./components/Spinner";
 // import Grocery from "./components/Grocery"  
 
 
@@ -28,7 +29,7 @@ function App() {
     },
     {
       path: "/grocery",
-      element: <Suspense fallback="<h1>Loading...</h1>"><Grocery /></Suspense>,  //suspense working in the meanwhile time
+      element: <Suspense fallback={<Spinner />}><Grocery /></Suspense>,  //suspense working in the meanwhile time
     },
     {
       path: "/cart",
